@@ -1,21 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './pages/Home'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
-      <div>
-        <p style={{fontSize:30, fontWeight:650, lineHeight:1.2}}>
-        Welcome to Times Sports
-      </p>
-      <p style={{fontSize:18, marginTop:-20, lineHeight:1.3}}>
-        kindly check back soon, this website is under construction
-      </p>
-      </div>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            
+            
+          </Routes>
+        </BrowserRouter>
       
     </>
   )
