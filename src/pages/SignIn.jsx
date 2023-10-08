@@ -3,7 +3,9 @@ import axios from 'axios'
 import Header from '../components/Header'
 import { Link, useNavigate, Form } from "react-router-dom";
 import HeaderLogo from '../components/HeaderLogo';
-
+import { addUser } from '../redux/userSlice'
+import { useDispatch } from 'react-redux'
+import {  setAccessToken,  setAdminAcessToken,  setData,  setIsLoggedIn,} from "../redux/userSlice";
 
 
 export default function SignIn() {
@@ -11,24 +13,34 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
    
   
-        axios.post("http://localhost:8000/api/login", {
-            
+        axios.post("https://backend.timesports.ng/api/login", {
+
         username: username,
         password: password,
-
-      
         })
-        .then((res) => {
-           console.log(res.data);
+        .then(response => {
+          const user = response.data
+          console.log(response.data);
           
-          if(res.data.success===true){  
-            navigate('/AdminPage')
+
+         
+          if(user.success===true){  
+            //dispatch(setAccessToken(response.data.access));
+            const uniqueKey = `user_${response.data.user_id}`;
+
+            sessionStorage.setItem("userKey", uniqueKey);
+            dispatch(setIsLoggedIn(true));
+            dispatch(setData(response.data))
+           dispatch(addUser(user))
+           navigate('/AdminDashboard')
+
             } else{
                         
             } 
@@ -43,7 +55,7 @@ export default function SignIn() {
 
   return (
     <div>
-        <HeaderLogo />
+       
         <Header />
         <div>
                  

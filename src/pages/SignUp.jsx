@@ -23,7 +23,7 @@ export default function SignUp() {
     event.preventDefault();
     //alert(`${firstName} ${lastName} Your Registration was successful `)
   
-        axios.post("http://localhost:8000/api/register", {
+        axios.post("http://localhost:4000/api/register", {
             
         username: username,
         firstname: firstname,
@@ -56,7 +56,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <HeaderLogo />
+      
         <Header />
         <div>
                  

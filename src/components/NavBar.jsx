@@ -2,9 +2,7 @@ import logo from '../logo.png'
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react'
-import DropDown from '../components/DropDown'
-import { menuItems } from '../menuItems';
-import './navbar.css' 
+
 
 
 
@@ -30,42 +28,134 @@ export default function NavBar() {
       }
     
       return (
-        <div className='flex justify-center '>
-          <div class="topnav" id="myTopnav">
-              <a href="/home" class="active">Home</a>
-              <div class="dropdown1">
-                <button class="dropbtn1">football
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content1">
-                  <a href="#home">Europe</a>
-                  <a href="#">African Leagues</a>
-                  <a href="#">NWPL</a>
-                  <a href="#">Caf CC</a>
-                  <a href="#">Caf CL</a>
-                  <a href="#">NPFL</a>
-                </div>
-              </div>
-              <a href="#">Basketball</a>
-              <a href="#">Tennis</a>
-              <a href="#">Boxing</a>
-              <a href="#">Wrestling</a>
-              <a href="#">Athletics</a>
-              <a href="#">Golf</a>
-              <div class="dropdown1">
-                <button class="dropbtn1">Life Style
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content1">
-                  <a href="#home">Transfers</a>
-                  <a href="#">Grass Roots</a>
-                  <a href="#">Other News</a>
-                  
-                </div>
-              </div>
-              <a href="javascript:void(0);" class="icon" onclick={myFunction}>&#9776;</a>
-            </div>
-          
+
+        <nav>
+          <div
+            className={`flex transition-all duration-500 flex-col-reverse lg:py-[10px]  lg:flex lg:bg-transparent lg:static lg:text-[16px] ${
+              isHamburgerClicked
+                ? "z-10 justify-center text-left bg-white top-[0px]  w-[75%] h-[100%] pl-[30px] fixed right-[0%] "
+                : "hidden right-[-100%]"
+            } `}
+          >
+            
+
+            {/* pages navigation */}
+            <ul className="flex-col lg:flex-row flex gap-[10px] lg:gap-0 py-auto lg:text-[15px] lg:w-[100%] ">
+              <li>
+                <NavLink
+                  to={"/"}
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px] "
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px]"
+                >
+                  Football
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px] "
+                >
+                  Basketball
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red  px-[30px] py-[10px]"
+                >
+                  Tennis
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px]"
+                >
+                  Boxing
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px] "
+                >
+                  Wrestling
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px]"
+                >
+                  Athletics
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px]"
+                >
+                  Golf
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setIsHamburgerClicked(false)}
+                  className="hover:bg-red px-[30px] py-[10px]"
+                >
+                  Life Style
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+
+        {/* hamburger menu icon */}
+        <div
+          onClick={handleClickedHamburger}
+          className={`mt-[20px] ml-[0px] cursor-pointer top-0 lg:hidden ${
+            isHamburgerClicked ? "z-20 fixed" : "absolute"
+          }`}
+        >
+          <div
+            className={`h-1 w-[35px] bg-deepBlue mt-2 duration-500 ${
+              isHamburgerClicked
+                ? "translate-x-[-4.5px] translate-y-[6px] rotate-[-405deg] "
+                : ""
+            } `}
+          ></div>
+          <div
+            className={`h-1 w-[35px] bg-deepBlue mt-2 duration-500 ${
+              isHamburgerClicked
+                ? "translate-x-[-4.5px] translate-y-[-6px] rotate-[405deg]"
+                : ""
+            }`}
+          ></div>
+           <div
+            className={`h-1 w-[35px] bg-deepBlue mt-2 duration-500 ${
+              isHamburgerClicked
+                ? "translate-x-[-4.5px] translate-y-[-6px] rotate-[405deg]"
+                : ""
+            }`}
+          ></div>
+         
         </div>
+    </nav>
+    
       );
     };

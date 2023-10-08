@@ -4,6 +4,7 @@ import '../pages/AdminPost.css'
 import Header from '../components/Header'
 import { Link, useNavigate, Form } from "react-router-dom";
 import HeaderLogo from '../components/HeaderLogo';
+import AdminHeader from '../components/AdminHeader';
 
 
 export default function AdminPost() {
@@ -18,6 +19,10 @@ export default function AdminPost() {
     setImage(e.target.files[0])
     console.log(e.target.files[0]) 
     
+  }
+
+  const handleStory = (e) => {
+    setStory(e.target.value)
   }
 
   
@@ -42,25 +47,26 @@ const uploadFields = () => {
   formData.append('story', story);
 
 
-  fetch("http://localhost:8000/api/createpost", {
-      method:'post',
+  axios.post("https://backend.timesports.ng/api/createpost", {
+      headline: headline,
+      story: JSON.stringify(story),
+      image: url,
+
       headers:{
-          'Content-type':'application/json'
+          'Content-type':'application/json, multipart/form-data'
+         
       },
-      config,
-      body: JSON.stringify({
-          headline,
-          story, 
-          image:url
-      })
+      //config,
+
   })
-  .then(res=>res.json())
-  .then(data=>{
-      
-      console.log(data);
-      
-      if(data.success===true){   
-          navigate('/Home')                                             
+  .then((res) => {
+    console.log(res.data);
+    setHeadline('')
+    setStory('')
+    setImage('')
+   
+   if(res.data.success===true){  
+          navigate('/Posts')                                             
       } else{
                   
       } 
@@ -107,10 +113,8 @@ function uploadFile(e) {
 
   return (
     <div>
-      <HeaderLogo />
-        <Header />
-        
-                 
+        <AdminHeader />
+                     
             
               <div class='flex flex-col w-[95%] lg:w-[50%] mx-auto border-2 border-style-solid border-gray4 py-[50px] mt-[100px] '>           
                 <div class='flex flex-col w-[95%] mx-auto'>
@@ -126,8 +130,8 @@ function uploadFile(e) {
                     <label class='text-left text-[18px] font-semibold '>Story</label>
                         <textarea type='textarea' 
                         value={story} 
-                        onChange={(e) => setStory(e.target.value)}
-                        class="form-input px-4 py-3 mb-[5px] text-[20px] text-left text-gray  h-[300px] rounded-none" />
+                        onChange={handleStory}
+                        class=" px-4 py-3 mb-[5px] text-[20px] text-left text-gray  h-[300px] rounded-none" />
                                                        
                     <input
                         name='file'
