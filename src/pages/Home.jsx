@@ -14,6 +14,7 @@ import { useDispatch } from 'react-redux'
 import RelatedNews from '../components/RelatedNews'
 import LatestNews from '../components/LatestNews'
 import ArchiveNews from '../components/ArchiveNews'
+import LeadStories from '../components/LeadStories'
 
 
 export default function Home() {
@@ -62,44 +63,24 @@ const showPostDetails =
       <div>
         <Header />
        
-        <div class='w-[100%] lg:w-[100%] mx-auto py-0 lg:py-8 ' >
-          <div class='py-8 lg:w-[85%] mx-auto'>
-            <div class='flex flex-col lg:flex-row lg:w-[100%] gap-4'>
-              
-              <div class=' lg:w-[70%] w-[100%] '>
-              {post &&
-                    post.slice(0, 1).map((post, index) => (
-
-                     <div class='flex justify-left flex-col mb-[30px] text-left text-[25px] lg:text-[25px] font-bold lg:font-bold lg:leading-[30px] leading-[27px]'>
-                        <div onClick={() => {showPostDetails(post.post_id)}} class='backdrop-opacity-1 backdrop bg-black/5'
-                        >
-                          <img src={post.image} alt='image' class='bg-red w-[100%] lg:h-[500px]  ' />
-                        </div>
-                        <div class='line-clamp-2 mx-[20px] mt-[-80px] mb-[80px] text-white'>
-                         {post.headline} 
-                        </div>
-                           
-                      </div>                          
-                        
-                  )
-                  
-                 )}
-                  
-              </div>
-              <div class=' lg:w-[30%]'>
-               <RelatedNews />
-              </div> 
-            </div>
-            <div class='lg:border-b-2 lg:border-gray4 lg:border-style-solid pb-[20px] mb-[30px] ' >
+        <div class='w-[100%] lg:w-[70%] mx-auto py-0 lg:py-1 ' >
+          <div class='flex flex-col lg:flex-row  py-8  mx-auto'>
+            <div class='lg:w-[70%] lg:w-[100%] '>
+              <LeadStories />
+          </div>      
+          <div class=' lg:w-[30%]'>
+            <RelatedNews />
+          </div> 
+        </div>
+        <div class='lg:border-b-2 lg:border-gray4 lg:border-style-solid pb-[20px] mb-[0px] ' >
           
         </div>
-            </div>
-
+      </div>
            <LatestNews />
 
         {/* //NEWS ARCHIVE// */}
             <ArchiveNews />
-        </div>
+      
        
         <Bottom />
         <Footer />

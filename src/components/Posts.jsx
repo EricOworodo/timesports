@@ -65,6 +65,9 @@ const showPostDetails =
                         post.slice(0, 10).map((post, index) => (
 
                         <div onClick={() => {showPostDetails(post.post_id)}} class='flex justify-left bg-white flex-row mb-[5px] py-[5px] text-deepBlue text-left text-[15px] border-[2px] w-full border-gray2 border-style-solid lg:text-[15px] font-medium lg:font-medium lg:leading-[20px] leading-[20px] '>
+                            <div>
+                                {post.post_id}
+                            </div>
                             <div class='line-clamp-1 mx-[5px] lg:mx-[20px] mt-[5px] w-full pl-[5px] lg:pl-[20px] '>
                             {post.headline} 
                             </div>   

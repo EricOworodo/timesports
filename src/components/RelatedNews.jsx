@@ -56,7 +56,7 @@ export default function RelatedNews() {
     <div>
          {/* latest NPFL news */}
          <div class='flex flex-col lg:flex-col mx-[15px] '>
-                <p class='text-[20px] lg:text-[25px] font-bold text-left pb-[10px] mb-[20px] border-b-2 border-gray4 border-style-solid '>Related News</p>
+                <p class='text-[25px] lg:text-[25px] text-deepBlue font-bold text-left pb-[10px] mb-[20px] border-b-2 border-gray4 border-style-solid '>Related News</p>
                 {post &&
                     post.slice(2, 5).map((post, index) => (
                 

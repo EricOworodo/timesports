@@ -13,6 +13,30 @@ import { useDispatch } from 'react-redux'
 import RelatedNews from '../components/RelatedNews'
 import LatestNews from '../components/LatestNews'
 import ArchiveNews from '../components/ArchiveNews'
+import {
+    FacebookShareButton,
+    EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon
+  } from "react-share";
 
 
 export default function NewsPostPage() {
@@ -25,7 +49,7 @@ const [image, setImage] = useState([]);
 //const {newsPost} = useSelector((state) => state.post)
 const newsPost = useSelector((state)=> state.post)
 
-
+const shareUrl = 'https://timesports.ng/NewsPostsPage';
 
 //   console.log(newsPost)
 
@@ -64,7 +88,6 @@ const newsPost = useSelector((state)=> state.post)
   return (
     <div >
       <div>
-       <HeaderLogo />
         <Header />
        
         <div class='w-[90%] lg:w-[70%] mx-auto py-0 lg:py-8 ' >
@@ -84,6 +107,20 @@ const newsPost = useSelector((state)=> state.post)
                     newsPost[0].story != "\"" && newsPost[0].story
                   } */}
                     {(newsPost[0].story) }
+                    <div class='flex flex-row mt-[10px]'>
+                    <FacebookShareButton
+                        url={shareUrl}
+                        >
+                        <FacebookIcon size={32} round={true} />
+                    </FacebookShareButton>
+                       
+                        <div class='mx-[5px] '>                     
+                            <TwitterIcon size={32} round={true} />
+                        </div>
+                        <div class='mx-[5px] '>                     
+                            <WhatsappIcon size={32} round={true} />
+                        </div>
+                    </div>
                     
                 </div>
              

@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -11,6 +11,7 @@ export default {
         lightGray: "#8D8D8D",
         deepBlue:"#003366",
         white:"#ffffff",
+        'black-blue':"#000000",
         gray4: '#f0f0f0',
         gray: "rgba(0, 0, 0, 0.50)",
         gray1: "rgba(0, 0, 0, 0.01)",
@@ -28,7 +29,7 @@ export default {
         loginBg: "rgba(246, 246, 246, 0.63)",
       },
       backgroundImage: {
-        heroImg:
+        postImg:
           "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/src/assets/images/heroSectionBg.png)",
         userSmall: 
           "url(/src/assets/images/user-small.svg)",

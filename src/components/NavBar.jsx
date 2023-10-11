@@ -45,7 +45,7 @@ export default function NavBar() {
                 <NavLink
                   to={"/"}
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px] "
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white active:bg-red px-[30px] py-[10px] active:text-white "
                 >
                   Home
                 </NavLink>
@@ -54,7 +54,7 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px]"
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white"
                 >
                   Football
                 </NavLink>
@@ -63,8 +63,8 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px] "
-                >
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white "
+                > 
                   Basketball
                 </NavLink>
               </li>
@@ -72,7 +72,7 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red  px-[30px] py-[10px]"
+                  className="hover:bg-red  px-[30px] py-[10px] hover:text-white"
                 >
                   Tennis
                 </NavLink>
@@ -81,7 +81,7 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px]"
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white"
                 >
                   Boxing
                 </NavLink>
@@ -90,7 +90,7 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px] "
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white "
                 >
                   Wrestling
                 </NavLink>
@@ -99,7 +99,7 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px]"
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white"
                 >
                   Athletics
                 </NavLink>
@@ -108,7 +108,7 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px]"
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white"
                 >
                   Golf
                 </NavLink>
@@ -117,7 +117,7 @@ export default function NavBar() {
                 <NavLink
                   to="/"
                   onClick={() => setIsHamburgerClicked(false)}
-                  className="hover:bg-red px-[30px] py-[10px]"
+                  className="hover:bg-red px-[30px] py-[10px] hover:text-white"
                 >
                   Life Style
                 </NavLink>
