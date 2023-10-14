@@ -64,7 +64,7 @@ const showPostDetails =
         <div class=' lg:columns-3 lg:w-[90%] '>
                 
         {post &&
-                    post.slice(4, 18).map((post, index) => (
+                    post.slice(4, 13).map((post, index) => (
             
                           <div  onClick={() => {
                             showPostDetails(post.post_id)

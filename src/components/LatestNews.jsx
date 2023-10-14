@@ -66,7 +66,7 @@ const showPostDetails =
   <div class="grid lg:grid-cols-3 gap-6 lg:gap-6 sm:grid-cols-1 lg:pb-[0px]"  >
 
     {post &&
-        post.slice(4, 9).map((post, index) => (
+        post.slice(4, 10).map((post, index) => (
         <div
           key={post.id}             
         >               

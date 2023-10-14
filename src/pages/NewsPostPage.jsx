@@ -102,11 +102,11 @@ const shareUrl = 'https://timesports.ng/NewsPostsPage';
                 <div class='text-[15px] lg:text-[16px] my-[15px] text-left leading-[19px] lg:leading-[21px] ' >
                 {/* {
                     newsPost[0].story == "\"" && JSON.parse(newsPost[0].story)
+                  }
+                  {
+                    newsPost[0].story != "\"" && JSON.parse(newsPost[0].story)
                   } */}
-                  {/* {
-                    newsPost[0].story != "\"" && newsPost[0].story
-                  } */}
-                    {(newsPost[0].story) }
+                    {JSON.parse(newsPost[0].story) }
                     <div class='flex flex-row mt-[10px]'>
                     <FacebookShareButton
                         url={shareUrl}
