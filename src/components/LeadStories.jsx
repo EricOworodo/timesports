@@ -7,7 +7,6 @@ import Bottom from '../components/Bottom'
 import { Container, Col, Row } from 'react-bootstrap'
 import axios from 'axios'
 import { Link, useNavigate, Form } from "react-router-dom";
-import HeaderLogo from '../components/HeaderLogo'
 import { reverseList } from "../helpers/helper";
 import { addPost } from '../redux/postSlice'
 import { useDispatch } from 'react-redux'

@@ -1,6 +1,6 @@
 import React from 'react'
 import AdminNavbar from './AdminNavbar'
-import logo from '../logo.png'
+import logo from '../../assets/logo.png'
 
 
 export default function AdminHeader() {

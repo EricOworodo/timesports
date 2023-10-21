@@ -1,15 +1,16 @@
 import {React, useState} from 'react'
 import axios from 'axios'
-import Header from '../components/Header'
+import Header from '../../components/admn/AdminHeader'
 import { Link, useNavigate, Form } from "react-router-dom";
-import HeaderLogo from '../components/HeaderLogo';
-import { addUser } from '../redux/userSlice'
+import { addUser, setData } from '../../redux/userSlice'
 import { useDispatch } from 'react-redux'
-import {  setAccessToken,  setAdminAcessToken,  setData,  setIsLoggedIn,} from "../redux/userSlice";
+import Bottom from '../../components/Bottom';
+import Footer from '../../components/Footer';
 
 
-export default function SignIn() {
-  const [username, setUserName] = useState("");
+
+export default function AdminLogin() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
   const navigate = useNavigate();
@@ -20,38 +21,26 @@ export default function SignIn() {
     event.preventDefault();
    
   
-        axios.post("https://backend.timesports.ng/api/login", {
+        axios.post("http://localhost:4000/api/login", {
 
-        username: username,
+        email: email,
         password: password,
         })
         .then(response => {
           const user = response.data
-          console.log(response.data);
-          
-
-         
+          console.log(response.data);     
           if(user.success===true){  
             //dispatch(setAccessToken(response.data.access));
             const uniqueKey = `user_${response.data.user_id}`;
-
             sessionStorage.setItem("userKey", uniqueKey);
-            dispatch(setIsLoggedIn(true));
-            dispatch(setData(response.data))
-           dispatch(addUser(user))
-           navigate('/AdminDashboard')
-
+            dispatch(addUser(response.data))
+           navigate('/admindashboard')
             } else{
                         
-            } 
-      
-        })
-        
-      
-        .catch(error => console.log(error))    
-            
-     
+            }})   
+        .catch(error => console.log(error))       
   }
+
 
   return (
     <div>
@@ -64,10 +53,9 @@ export default function SignIn() {
                   <input 
                           type="text" 
                           required 
-                          value={username} 
-                          name="username" 
-                          onChange={(e) => setUserName(e.target.value)} 
-                          placeholder='Enter your username' 
+                          value={email}  
+                          onChange={(e) => setEmail(e.target.value)} 
+                          placeholder='Enter your email Id' 
                           class="form-input px-4 py-3 mb-[5px] text-[20px] text-left text-gray  h-[60px] rounded-none" />
                 </div>     
 
@@ -76,7 +64,6 @@ export default function SignIn() {
                           type="password" 
                           required 
                           value={password} 
-                          name="password" 
                           onChange={(e) => setPassword(e.target.value)} 
                           placeholder='Enter your password' 
                           class="form-input px-4 py-3 mb-[5px] text-[20px] text-left text-gray  h-[60px] rounded-none" />
@@ -96,6 +83,8 @@ export default function SignIn() {
               </div>
           
         </div>
+        <Bottom />
+        <Footer />
     </div>
   )
 }

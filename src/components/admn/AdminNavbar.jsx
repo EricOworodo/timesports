@@ -1,9 +1,7 @@
-import logo from '../logo.png'
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react'
 import { BiSolidUserCircle } from 'react-icons/bi';
-import { reverseList } from "../helpers/helper";
 import { useSelector } from 'react-redux'
 
 
@@ -71,37 +69,7 @@ export default function AdminNavBar() {
                         </NavLink>
                     </li>
                     
-                    <li>
-                        <NavLink
-                        to="/adminpost"
-                        onClick={() => setIsHamburgerClicked(false)}
-                        className="hover:text-sandyYellow"
-                        >
-                        Create Post
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink
-                        to={"/posts"}
-                        onClick={() => setIsHamburgerClicked(false)}
-                        className="hover:text-sandyYellow"
-                        >
-                        Posts
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink
-                        to={"/preauthorisedposts"}
-                        onClick={() => setIsHamburgerClicked(false)}
-                        className="hover:text-sandyYellow"
-                        >
-                        Pre-Authorized Posts
-                        </NavLink>
-                    </li>
-
-                    </ul>
+                </ul>
 
                 </div>
 

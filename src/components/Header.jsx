@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from './NavBar'
-import logo from '../logo.png'
+import logo from '../assets/logo.png'
 import { BiSolidUserCircle } from 'react-icons/bi';
 
 

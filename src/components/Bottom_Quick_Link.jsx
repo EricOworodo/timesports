@@ -16,7 +16,7 @@ export default function Bottom_Quick_Link() {
                 <Link to={'/'} style={{color:'#f0f0f0',}}>Contact Us</Link>               
             </li>
             <li>
-                <Link to={'/signin'} style={{color:'#f0f0f0',}}>Admin Login</Link>               
+                <Link to={'/adminlogin'} style={{color:'#f0f0f0',}}>Admin Login</Link>               
             </li>
            
         </ul>
